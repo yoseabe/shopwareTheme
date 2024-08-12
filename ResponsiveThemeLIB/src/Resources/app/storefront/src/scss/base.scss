@@ -1,0 +1,62 @@
+
+
+@font-face{
+        font-family: 'myTitel';
+        //src: url('/var/www/html/shopware/custom/plugins/ResponsiveThemeLIB/src/Resources/app/storefront/src/assets/fonts/Anton-Regular.ttf') format('truetype>
+}
+
+@media only screen and (max-width: 700px) {
+  .titelundDisc {
+    margin-left: 20px !important;
+  }
+}
+.myHero {
+  display: flex;
+  background-color: rgb(0, 0, 0);
+  height: 500px;
+  justify-content: left;
+  align-items: last baseline;
+  background-size: cover;
+  background:
+     linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.4)
+    ),
+    /* bottom, image */ url("https://raw.githubusercontent.com/yoseabe/spam/main/ai2.png");
+  background-size: cover;
+  background-position: 0px;
+}
+.titelundDisc {
+  margin-left: 100px;
+  margin-bottom: 80px;
+}
+
+.titelundDisc h1 {
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+}
+
+.titelundDisc p {
+  margin-top: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+.titelundDisc a {
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: 15px;
+  border: 1px solid white;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.titelundDisc a:hover {
+  border-color: rgb(157, 157, 157);
+}

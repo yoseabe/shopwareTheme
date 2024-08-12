@@ -1,0 +1,397 @@
+/*
+Override variable defaults
+==================================================
+This file is used to override default SCSS variables from the Shopware Storefront or Bootstrap.
+
+Because of the !default flags, theme variable overrides have to be declared beforehand.
+https://getbootstrap.com/docs/4.0/getting-started/theming/#variable-defaults
+*/
+
+
+//@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root{
+	--mainFont: "DM Sans", sans-serif;
+}
+//PC Nav width
+.container, .cms-section .boxed{
+	max-width: 100% !important;
+}
+
+//Cookie
+button.btn.btn-light.btn-block.js-offcanvas-cookie-deny{
+	display: none;
+}
+button.btn.btn-primary.btn-block.js-offcanvas-cookie-submit-all{
+	width: 100%;
+}
+button.btn.btn-link.btn-block.js-offcanvas-cookie-submit{
+	width: 100%;
+}
+
+
+//Über Uns bold
+b, strong{
+	font-weight: 600 !important;
+}
+
+//main Page kats
+.cms-block-image-text-bubble .cms-element-text, .cms-block-image-text-row .cms-element-text{
+	padding-top: 0px !important;
+	padding-bottom: 5px;
+	font-family: var(--mainFont);
+}
+
+//navbar logo
+.header-logo-main img{
+	max-width: 100%;
+	height: 40px !important;
+	width: auto;
+}
+//nav bar total money
+.header-cart-total{
+	display:none !important;
+}
+//listing for all
+.cms-listing-col.col-sm-6.col-lg-4.col-xl-3{
+	margin-bottom: 0px !important;
+}
+p.product-detail-price{
+	font-size: 20px !important;
+}
+h1.product-detail-name{
+        font-size: 24px;
+        font-weight: 400;
+        font-family: var(--mainFont);
+        margin: 0px !important;
+}
+
+.filter-panel-items-container{
+	margin: 15px 10px !important;
+}
+
+
+.product-price-info{
+	margin-top: 0px !important;
+}
+
+.product-detail-price{
+	font-size: 20px !important;
+	font-family: var(--mainFont);
+	font-weight: 200 !important;
+}
+.product-detail-configurator-group-title{
+	font-family: var(--mainFont);
+        font-weight: 300 !important;
+	font-size: 16px;
+}
+p{
+	font-family: var(--mainFont);
+        font-weight: 300 !important;
+	font-size: 15px !important;
+}
+
+.product-detail-delivery-information{
+	margin-bottom: 5px !important;
+}
+.product-detail-configurator-option-input:checked+.product-detail-configurator-option-label.is-display-text{
+	font-family: var(--mainFont);
+        font-weight: 300 !important;
+        font-size: 15px;
+}
+span {
+    font-family: var(--mainFont);
+    font-size: 16px;
+}
+.product-detail-buy{
+	margin-bottom: 0px !important;
+}
+
+.product-detail-description-text{
+	font-family: var(--mainFont);
+	font-size: 18px;
+	font-weight: 300 !important;
+}
+.h3.product-detail-description-title{
+	font-family: var(--mainFont);
+}
+
+.cms-element-product-listing-actions{
+	display: none !important;
+}
+.cms-element-product-listing .cms-listing-col{
+	padding: 4px !important;
+}
+.product-box .card-body{
+	padding: 0px;
+}
+.row.g-2.mt-0.mb-4.justify-content-end{
+	display: none;
+}
+
+
+//navigator i> iawd
+a.cms-image-link.product-detail-manufacturer-link{
+	display: none;
+}
+
+.breadcrumb{
+        display: none !important;
+}
+
+//footer
+.footer-column-headline{
+	font-family: var(--mainFont);
+
+}
+//tablet
+@media only screen and (min-width: 576px) and (max-width: 991px){
+
+//filter
+.cms-element-sidebar-filter {
+    padding: 10px;
+    display: flex !important;
+    justify-content: right;
+}
+.btn.filter-panel-wrapper-toggle{
+	
+	padding: 0px 20px !important;
+        border-radius: 25px;
+	width: auto !important;
+}
+	
+}
+
+//product for all
+.product-detail-configurator-option-label.is-display-color{
+        height: 40px !important;
+        border-radius: 5px !important;
+}
+
+//experiment navbar for mobile
+@media only screen and (max-width: 576px) {
+//check out
+.is-act-checkoutregisterpage .checkout{
+        padding-top: 0px !important;
+
+}
+.is-act-confirmpage .checkout, .is-ctl-accountorder .checkout{
+	padding-top: 0px !important;
+}
+
+//account dropdown for mobile
+.dropdown-menu.dropdown-menu-end.account-menu-dropdown.js-account-menu-dropdown.show{
+	display: none !important;
+}
+
+//cart problem
+.btn .badge{
+	position: absolute !important;
+	top: 3px !important;
+	right: 0px;
+}
+a.btn.header-cart-btn.header-actions-btn{
+	display: flex !important;
+}
+.dropdown-menu.show{
+	display: none !important;
+}
+
+
+
+.icon>svg{
+	height: 18px !important;
+	color: black;
+}
+//go up btn
+.scroll-up-button.js-scroll-up-button.is-visible>button{
+	background-color: white;
+}
+
+
+//item cart counter
+span.badge.bg-primary.header-cart-badge{
+	margin-top: 2px !important;
+}
+
+
+.container-main{
+	padding-top: 54px !important;
+}
+
+.header-main{
+    	width: 100%;
+    	z-index: 999;
+    	position: fixed;
+    	background-color: white;
+    	height: 54px;
+}
+
+.row.g-0{
+	justify-content: space-between;
+}
+.col.d-sm-none{
+	display: contents;
+}
+
+.header-logo-picture{
+	display: contents !important;
+	margin: 0px !important;
+}
+.header-logo-col{
+	margin: 0px !important;
+	display: contents !important;
+}
+.menu-button{
+	display: flex;
+}
+.header-cart{
+	display: none;
+}
+.col-auto{
+	display: flex;
+}
+
+.btn.header-search-btn{
+	background-color: white;
+}
+
+//Product listing mobile
+
+.col-md-auto{
+	display: none;
+
+}
+.cms-element-sidebar-filter{
+	padding: 0px 10px;
+        display: flex;
+        justify-content: right;
+	margin-bottom: 10px;
+	margin-top: 10px;
+
+}
+
+.product-box.box-image .product-image {
+    max-height: 100% !important;
+}
+
+.product-image-wrapper{
+	margin-bottom: 4px !important;
+	height: auto !important;
+}
+.cms-element-product-listing-actions{
+	margin-bottom: 0px;
+}
+
+
+.btn.filter-panel-wrapper-toggle{
+	padding: 0px 18px !important;
+	border-radius: 24px;
+	font-family: var(--mainFont);
+        font-weight: 400 !important;
+        font-style: normal;
+	width: auto !important;
+}
+
+.cms-element-product-listing .cms-listing-col{
+        padding: 0px !important;
+	width: 50%;
+}
+.product-box .card-body{
+	padding: 0px;
+	margin: 2px;
+}
+.dropdown-menu.show {
+    display: block !important;
+}
+
+
+//Product Listing mobile END
+
+//produkt page
+h1.product-detail-name{
+	font-size: 20px !important;
+}
+
+.product-detail-tab-preview{
+	font-weight: 300 !important;
+}
+.base-slider.has-dots-outside{
+	margin-bottom: 10px !important;
+}
+.gallery-slider-row{
+	margin-bottom: 0px !important;
+}
+
+div.gallery-slider-item.is-contain{
+        min-height: 400px !important;
+}
+.gallery-slider-col.col.order-1.order-md-2{
+	padding: 0px !important;
+}
+.gallery-slider-item.is-contain .gallery-slider-image, .gallery-slider-single-image.is-contain .gallery-slider-image{
+	object-fit: cover !important;
+}
+
+
+
+//.cms-block .cms-block-container{
+//	padding-top: 0px !important;
+//	padding-bottom: 0px !important;
+//}
+
+
+//produkt page END
+
+
+
+}
+//end experiment
+
+
+
+
+
+//big item
+.gallery-slider-container .gallery-slider-image{
+	width:100%;
+}
+//for listing
+
+.product-price, .product-name{
+	font-size: 16px !important;
+	font-family: var(--mainFont);;
+	font-weight: 300 !important;
+	font-style: normal; 
+}
+.product-cheapest-price{
+	display:none;
+}
+.product-price-unit{
+	display:none;
+}
+.product-variant-characteristics{
+	display:none;
+}
+.product-action{
+	display:none;
+}
+.product-name{
+	display: contents !important;
+}
+.product-box{
+	border: 0px !important;
+}
+
+
+
+//end product listing
+
+//shopware relised
+.footer-copyright{
+	display: none;
+}
+
+
+

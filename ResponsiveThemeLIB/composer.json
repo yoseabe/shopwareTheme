@@ -1,0 +1,18 @@
+{
+  "name": "swag/theme-skeleton",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ResponsiveThemeLIB\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "ResponsiveThemeLIB\\ResponsiveThemeLIB",
+    "label": {
+      "de-DE": "Theme ResponsiveThemeLIB plugin",
+      "en-GB": "Theme ResponsiveThemeLIB plugin"
+    }
+  }
+}
