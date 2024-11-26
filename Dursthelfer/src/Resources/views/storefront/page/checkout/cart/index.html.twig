@@ -1,0 +1,50 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+{% set minimumOrderValueReached = false %}
+{% set moneyUntilMinimumOrder = (30 - page.cart.price.positionPrice) %}
+{% set progressInPercent = (page.cart.price.positionPrice / 30) * 100 %}
+
+{% for key,value in context.ruleIds %}
+	{% if value =='01925c95986375b8b3dd72cb17d06067' %}
+		{% set minimumOrderValueReached = true %}
+	{% endif %}
+{% endfor %}
+
+{% block page_checkout_cart %}
+	{% if page.cart.price.positionPrice > 0 %}
+		{% if not minimumOrderValueReached %}
+			<div class="mindesBestellwertContainer">
+					{% if progressInPercent < 100 %}
+						<div class="mindesBestellwertInfoContainer">
+							<a>Mindestbestellwert Gesamt</a>
+							<a>Noch {{ moneyUntilMinimumOrder|currency }}</a>
+						</div>
+						<div class="mindestBestellwertProgressbar" style="--p:{{progressInPercent}}; --c: #1ce8ed"></div>
+					{#% else %#}
+					{% endif %}
+			</div>
+		{% else %}
+			<div class="mindesBestellwertContainer">
+				<div class="mindesBestellwertInfoContainer">
+					<a style="color: green">Mindestbestellwert Erreicht!</a>
+				</div>
+				<div class="mindestBestellwertProgressbar" style="--p:100; --c:green"></div>
+			</div>
+		{% endif %}
+	{% endif %}
+	{{ parent() }}
+{% endblock %}
+
+
+{% block page_checkout_cart_action_proceed %}
+	{% if minimumOrderValueReached %}
+		{{ parent() }}
+	{% else %}
+	<div class="mindestBestellWertNichterreichtActionButtonDiv">
+		<a class="mindestBestellWertNichterreichtText">Noch {{moneyUntilMinimumOrder}} € bis zum "Mindestbestellwert Gesamt"</a>
+	    <a class="mindestBestellWertNichterreichtButtonActionButton" title="Zur Kasse">Zur Kasse</a>
+	</div>
+	{% endif %}
+{% endblock %}
+
+ {% block page_checkout_cart_shipping_costs %}{% endblock %}

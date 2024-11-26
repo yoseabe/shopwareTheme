@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/index.html.twig' %}
+
+{% set minimumOrderValueReached = false %}
+{% set moneyUntilMinimumOrder = (30 - page.cart.price.positionPrice) %}
+
+{% for key,value in context.ruleIds %}
+	{% if value =='01925c95986375b8b3dd72cb17d06067' %}
+		{% set minimumOrderValueReached = true %}
+	{% endif %}
+{% endfor %}
+
+{% block page_checkout_confirm_form_submit %}
+    {% if minimumOrderValueReached %}
+		{{ parent() }}
+	{% else %}
+        <div class="mindestBestellWertNichterreichtActionButtonDiv">
+            <a class="mindestBestellWertNichterreichtText">Noch {{moneyUntilMinimumOrder}} € bis zum "Mindestbestellwert Gesamt"</a>
+            <a class="mindestBestellWertNichterreichtButtonActionButton" title="Zur Kasse">Zur Kasse</a>
+        </div>
+	{% endif %}
+{% endblock %}

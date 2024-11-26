@@ -1,0 +1,7 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
+
+{% block buy_widget_price %}
+    <h1 class="product-detail-name" style="margin: 0px;">{{ product.translated.name }}</h1>
+    {{parent()}}
+
+{% endblock %}

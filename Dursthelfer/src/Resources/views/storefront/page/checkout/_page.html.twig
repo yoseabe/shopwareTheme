@@ -1,0 +1,39 @@
+{% sw_extends '@Storefront/storefront/page/checkout/_page.html.twig' %}
+
+{% block page_checkout_aside_container %}
+	{% if app.request.attributes.get('_route') == 'frontend.checkout.cart.page' %}
+		<form name="precalc"
+								method="post"
+								action="{{ path('frontend.checkout.configure') }}"
+								data-form-auto-submit="true">
+				<div class="form-group form-groupCartVersandYA">
+					<label class="labelCartVersandYA"for="shippingMethodId">{{ 'checkout.shippingMethod'|trans|sw_sanitize }}</label>
+					<div id="shippingMethodId shippingMethodIdContainerCartVersandYA">
+						{% if context.shippingMethod.id not in page.shippingMethods.ids %}
+							<div class="form-check">
+								<input class="form-check-input form-check-input-CartVersandYA" type="radio" id="shippingMethod_{{ context.shippingMethod.id }}" name="shippingMethodId" value="{{ context.shippingMethod.id }}" disabled="disabled" checked="checked">
+								<label class="form-check-label form-check-label-CartVersandYA" for="shippingMethod_{{ context.shippingMethod.id }}">
+									{{ context.shippingMethod.translated.name }} {{ 'checkout.notAvailableSuffix'|trans|sw_sanitize }}
+								</label>
+							</div>
+						{% endif %}
+						
+						{% for shipping in page.shippingMethods %}
+							<div class="form-check form-check-CartVersandYA">
+								<input class="form-check-input form-check-input-CartVersandYA" type="radio" id="shippingMethod_{{ shipping.id }}" name="shippingMethodId" value="{{ shipping.id }}"
+									{% if shipping.id == context.shippingMethod.id %} checked="checked"{% endif %}>
+								<label class="form-check-label form-check-label-CartVersandYA" for="shippingMethod_{{ shipping.id }}">
+									{{ shipping.translated.name }}
+								</label>
+								<label class="shippingDescriptionCartVersandYA">
+									{{ shipping.translated.description }}
+								</label>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			<input type="hidden" name="redirectTo" value="frontend.checkout.cart.page">
+		</form>
+	{% endif %}
+    {{parent()}}
+{% endblock %}

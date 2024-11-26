@@ -1,0 +1,27 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart-summary.html.twig' %}
+
+
+{% block component_offcanvas_summary_content_shipping %}
+    {% if page.shippingMethods|length %}
+        <div class="offcanvas-shipping-preference mb-2 mt-2">
+            <form
+                action="{{ path('frontend.checkout.configure') }}"
+                name="confirmShippingForm"
+                method="post">
+                <input type="hidden" name="forwardTo" value="frontend.cart.offcanvas">
+                {% block component_offcanvas_summary_content_shipping_select %}
+                    <select class="form-select mt-2 col-12" name="shippingMethodId">
+                        <option disabled>{{ 'checkout.confirmChangeShipping'|trans|sw_sanitize }}</option>
+                        {% for shippingMethod in page.shippingMethods %}
+                            <option
+                                value="{{ shippingMethod.id }}"
+                                {% if shippingMethod.id is same as(activeShipping.shippingMethod.id) %}selected="selected"{% endif %} >
+                                {{ shippingMethod.translated.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                {% endblock %}
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

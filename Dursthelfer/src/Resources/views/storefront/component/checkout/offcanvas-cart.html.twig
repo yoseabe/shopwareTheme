@@ -1,0 +1,54 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart.html.twig' %}
+
+{% set minimumOrderValueReached = false %}
+{% set moneyUntilMinimumOrder = (30 - page.cart.price.positionPrice) %}
+{% set progressInPercent = (page.cart.price.positionPrice / 30) * 100 %}
+
+{% for key,value in context.ruleIds %}
+	{% if value=='01925c95986375b8b3dd72cb17d06067' %}
+		{% set minimumOrderValueReached = true %}
+	{% endif %}
+{% endfor %}
+
+{% block component_offcanvas_cart_flashbags %}
+		{% for type, messages in app.flashes %}
+			{% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+				type: type,
+				list: messages
+			} %}
+		{% endfor %}
+	{% if page.cart.price.positionPrice > 0 %}
+		{% if not minimumOrderValueReached %}
+			<div class="mindesBestellwertContainer">
+				{% if progressInPercent < 100 %}
+					<div class="mindesBestellwertInfoContainer">
+						<a>Mindestbestellwert Gesamt</a>
+						<a>Noch {{ moneyUntilMinimumOrder|currency }}</a>
+					</div>
+					<div class="mindestBestellwertProgressbar" style="--p:{{progressInPercent}}; --c: #1ce8ed"></div>
+				{% endif %}
+			</div>
+		{% else %}
+			<div class="mindesBestellwertContainer">
+				<div class="mindesBestellwertInfoContainer">
+					<a style="color: green">Mindestbestellwert Erreicht!</a>
+				</div>
+				<div class="mindestBestellwertProgressbar" style="--p:100; --c:green"></div>
+			</div>
+		{% endif %}
+	{% endif %}
+{% endblock %}
+
+
+{% block component_offcanvas_cart_actions_checkout %}
+	{% if page.cart.price.positionPrice > 0 %}
+		{% if minimumOrderValueReached %}
+			{{ parent() }}
+		{% else %}
+			<div class="mindestBestellWertNichterreichtActionButtonDiv">
+				<a class="mindestBestellWertNichterreichtText">Noch {{moneyUntilMinimumOrder}} € bis zum "Mindestbestellwert Gesamt"</a>
+				<a class="mindestBestellWertNichterreichtButtonActionButton" title="Zur Kasse">Zur Kasse</a>
+			</div>
+		{% endif %}
+	{% endif %}
+{% endblock %}
